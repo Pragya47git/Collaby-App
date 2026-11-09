@@ -1,0 +1,6 @@
+{
+  "name": "collaby",
+  "description": "Collaby is the unified AI collaboration workspace combining intelligent kanban sprint boards, infinite whiteboard canvas, real-time rich document co-editing, and multi-agent AI assistance.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
