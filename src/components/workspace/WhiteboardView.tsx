@@ -15,6 +15,7 @@ import {
   Move,
 } from 'lucide-react';
 import { StickyNote, DiagramNode, DiagramConnection, Collaborator } from '../../types';
+import { fetchWhiteboardNodes } from '../../utils/aiClient';
 
 interface WhiteboardViewProps {
   collaborators: Collaborator[];
@@ -261,15 +262,10 @@ export const WhiteboardView: React.FC<WhiteboardViewProps> = ({
     setIsGeneratingDiagram(true);
 
     try {
-      const res = await fetch('/api/ai/whiteboard-nodes', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ prompt: aiPrompt }),
-      });
-      const data = await res.json();
-      if (data?.diagram?.nodes?.length) {
-        setDiagramNodes(data.diagram.nodes);
-        setDiagramConnections(data.diagram.connections || []);
+      const diagram = await fetchWhiteboardNodes(aiPrompt);
+      if (diagram?.nodes?.length) {
+        setDiagramNodes(diagram.nodes);
+        setDiagramConnections(diagram.connections || []);
       }
     } catch (err) {
       console.error('Error generating AI diagram:', err);

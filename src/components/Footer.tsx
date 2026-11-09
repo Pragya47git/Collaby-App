@@ -4,9 +4,10 @@ import { WorkspaceTab } from '../types';
 
 interface FooterProps {
   onOpenWorkspace: (tab: WorkspaceTab) => void;
+  onOpenDeployGuide?: () => void;
 }
 
-export const Footer: React.FC<FooterProps> = ({ onOpenWorkspace }) => {
+export const Footer: React.FC<FooterProps> = ({ onOpenWorkspace, onOpenDeployGuide }) => {
   return (
     <footer className="border-t border-neutral-200/80 dark:border-neutral-800/80 bg-white dark:bg-neutral-950 py-12 transition-colors">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -109,6 +110,14 @@ export const Footer: React.FC<FooterProps> = ({ onOpenWorkspace }) => {
               <li className="flex items-center gap-1.5">
                 <Terminal className="w-3.5 h-3.5 text-neutral-400" />
                 <span>REST & WebSocket APIs</span>
+              </li>
+              <li>
+                <button
+                  onClick={onOpenDeployGuide}
+                  className="text-indigo-600 dark:text-indigo-400 hover:underline font-medium flex items-center gap-1 cursor-pointer"
+                >
+                  <span>Deploy to GitHub Pages ↗</span>
+                </button>
               </li>
               <li>
                 <span>MIT Open Source License</span>

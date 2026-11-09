@@ -52,7 +52,7 @@ export const BentoGrid: React.FC<BentoGridProps> = ({ onSelectFeature }) => {
 
             <div className="relative rounded-xl overflow-hidden border border-neutral-200 dark:border-neutral-800 bg-neutral-950 mt-2">
               <img
-                src="/src/assets/images/collaby_feature_whiteboard_1794232995121.jpg"
+                src="./images/collaby_feature_whiteboard.jpg"
                 alt="Collaby infinite whiteboard with interactive diagrams and sticky notes"
                 referrerPolicy="no-referrer"
                 className="w-full h-64 sm:h-72 object-cover object-left-top group-hover:scale-105 transition-transform duration-500"
@@ -91,7 +91,7 @@ export const BentoGrid: React.FC<BentoGridProps> = ({ onSelectFeature }) => {
 
             <div className="relative rounded-xl overflow-hidden border border-neutral-200 dark:border-neutral-800 bg-neutral-950 mt-2">
               <img
-                src="/src/assets/images/collaby_feature_kanban_1794232996338.jpg"
+                src="./images/collaby_feature_kanban.jpg"
                 alt="Collaby modern agile sprint kanban board interface"
                 referrerPolicy="no-referrer"
                 className="w-full h-64 sm:h-72 object-cover object-top group-hover:scale-105 transition-transform duration-500"

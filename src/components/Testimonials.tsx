@@ -25,7 +25,7 @@ export const Testimonials: React.FC = () => {
 
             <div className="flex items-center gap-4 pt-4 border-t border-neutral-100 dark:border-neutral-800">
               <img
-                src="/src/assets/images/avatar_collaborator_elena_1794232996163.jpg"
+                src="./images/avatar_elena.jpg"
                 alt="Elena Rostova, VP of Product"
                 referrerPolicy="no-referrer"
                 className="w-12 h-12 rounded-full object-cover ring-2 ring-indigo-500/20 shrink-0"
@@ -49,7 +49,7 @@ export const Testimonials: React.FC = () => {
 
             <div className="flex items-center gap-4 pt-4 border-t border-neutral-100 dark:border-neutral-800">
               <img
-                src="/src/assets/images/avatar_collaborator_marcus_1794232996080.jpg"
+                src="./images/avatar_marcus.jpg"
                 alt="Marcus Chen, Staff Platform Architect"
                 referrerPolicy="no-referrer"
                 className="w-12 h-12 rounded-full object-cover ring-2 ring-indigo-500/20 shrink-0"

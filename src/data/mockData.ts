@@ -5,7 +5,7 @@ export const INITIAL_COLLABORATORS: Collaborator[] = [
     id: 'user-1',
     name: 'Elena Rostova',
     role: 'VP of Product',
-    avatar: '/src/assets/images/avatar_collaborator_elena_1794232996163.jpg',
+    avatar: './images/avatar_elena.jpg',
     status: 'active',
     cursor: { x: 340, y: 180 },
   },
@@ -13,7 +13,7 @@ export const INITIAL_COLLABORATORS: Collaborator[] = [
     id: 'user-2',
     name: 'Marcus Chen',
     role: 'Staff Architect',
-    avatar: '/src/assets/images/avatar_collaborator_marcus_1794232996080.jpg',
+    avatar: './images/avatar_marcus.jpg',
     status: 'active',
     cursor: { x: 720, y: 260 },
   },
@@ -45,7 +45,7 @@ export const INITIAL_TASKS: Task[] = [
     tags: ['Architecture', 'WebSockets', 'Canvas'],
     assignee: {
       name: 'Marcus Chen',
-      avatar: '/src/assets/images/avatar_collaborator_marcus_1794232996080.jpg',
+      avatar: './images/avatar_marcus.jpg',
       role: 'Staff Architect',
     },
     estimatedHours: 12,
@@ -90,7 +90,7 @@ export const INITIAL_TASKS: Task[] = [
     tags: ['Canvas', 'Export', 'Client'],
     assignee: {
       name: 'Elena Rostova',
-      avatar: '/src/assets/images/avatar_collaborator_elena_1794232996163.jpg',
+      avatar: './images/avatar_elena.jpg',
       role: 'VP of Product',
     },
     estimatedHours: 4,
@@ -119,7 +119,7 @@ export const INITIAL_STICKY_NOTES: StickyNote[] = [
     text: 'Idea: Auto-link Kanban tasks directly to whiteboard diagram nodes',
     x: 80,
     y: 100,
-    color: '#FEF08A', // Yellow
+    color: '#FEF08A',
     author: 'Elena Rostova',
   },
   {
@@ -127,7 +127,7 @@ export const INITIAL_STICKY_NOTES: StickyNote[] = [
     text: 'Security: Zero-trust token rotation on WebSockets reconnect',
     x: 320,
     y: 90,
-    color: '#BAE6FD', // Sky
+    color: '#BAE6FD',
     author: 'Marcus Chen',
   },
   {
@@ -135,7 +135,7 @@ export const INITIAL_STICKY_NOTES: StickyNote[] = [
     text: 'Gemini 3.8 Flash latency benchmark: sub-400ms TTFT confirmed',
     x: 560,
     y: 110,
-    color: '#BBF7D0', // Green
+    color: '#BBF7D0',
     author: 'Alex Rivera',
   },
   {
@@ -143,7 +143,7 @@ export const INITIAL_STICKY_NOTES: StickyNote[] = [
     text: 'Design rule: Keep line weights at 2px with rounded joints',
     x: 200,
     y: 330,
-    color: '#FBCFE8', // Pink
+    color: '#FBCFE8',
     author: 'Sophia Patel',
   },
 ];

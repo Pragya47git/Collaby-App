@@ -78,7 +78,7 @@ export const Hero: React.FC<HeroProps> = ({ onLaunch, onExploreDemo }) => {
           <div className="relative rounded-2xl overflow-hidden border border-neutral-200/80 dark:border-neutral-800 shadow-2xl bg-neutral-900 group">
             {/* Real generated high-fidelity hero image */}
             <img
-              src="/src/assets/images/collaby_hero_workspace_1794232995087.jpg"
+              src="./images/collaby_hero_workspace.jpg"
               alt="Collaby team collaboration workspace environment with interactive displays"
               referrerPolicy="no-referrer"
               className="w-full h-auto object-cover max-h-[580px] transition-transform duration-700 group-hover:scale-[1.01]"

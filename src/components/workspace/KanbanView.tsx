@@ -15,6 +15,7 @@ import {
   AlertCircle,
 } from 'lucide-react';
 import { Task, Collaborator } from '../../types';
+import { fetchGenerateTasks } from '../../utils/aiClient';
 
 interface KanbanViewProps {
   tasks: Task[];
@@ -110,18 +111,9 @@ export const KanbanView: React.FC<KanbanViewProps> = ({
     setAiStatusMessage('Gemini 3.8 Flash is decomposing feature goal...');
 
     try {
-      const res = await fetch('/api/ai/generate-tasks', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          goal: aiGoal,
-          currentTasks: tasks.map((t) => t.title),
-        }),
-      });
-
-      const data = await res.json();
-      if (data?.tasks && Array.isArray(data.tasks)) {
-        const generated: Task[] = data.tasks.map((item: any, idx: number) => {
+      const taskList = await fetchGenerateTasks(aiGoal, tasks.map((t) => t.title));
+      if (taskList && Array.isArray(taskList)) {
+        const generated: Task[] = taskList.map((item: any, idx: number) => {
           const assigneeObj = collaborators[idx % collaborators.length];
           return {
             id: `task-ai-${Date.now()}-${idx}`,

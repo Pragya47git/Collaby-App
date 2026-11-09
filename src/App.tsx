@@ -13,6 +13,7 @@ import { Testimonials } from './components/Testimonials';
 import { Pricing } from './components/Pricing';
 import { Footer } from './components/Footer';
 import { ContactModal } from './components/ContactModal';
+import { GitHubPagesModal } from './components/GitHubPagesModal';
 import { WorkspaceLayout } from './components/workspace/WorkspaceLayout';
 import { AiChatDrawer } from './components/workspace/AiChatDrawer';
 import { ArrowRight, Sparkles, CheckCircle2, Play } from 'lucide-react';
@@ -31,6 +32,7 @@ export default function App() {
   // Modals & Drawers
   const [isAiDrawerOpen, setIsAiDrawerOpen] = useState(false);
   const [isContactModalOpen, setIsContactModalOpen] = useState(false);
+  const [isDeployModalOpen, setIsDeployModalOpen] = useState(false);
   const [selectedPlan, setSelectedPlan] = useState('Team Pro');
 
   // Sync Dark Theme class on html element
@@ -180,8 +182,17 @@ export default function App() {
         defaultPlan={selectedPlan}
       />
 
+      {/* GitHub Pages Step-by-Step Deployment Guide Modal */}
+      <GitHubPagesModal
+        isOpen={isDeployModalOpen}
+        onClose={() => setIsDeployModalOpen(false)}
+      />
+
       {/* Clean, Refined Footer */}
-      <Footer onOpenWorkspace={handleSelectFeature} />
+      <Footer
+        onOpenWorkspace={handleSelectFeature}
+        onOpenDeployGuide={() => setIsDeployModalOpen(true)}
+      />
     </div>
   );
 }

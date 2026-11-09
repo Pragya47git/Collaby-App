@@ -18,6 +18,7 @@ import {
   Clock,
 } from 'lucide-react';
 import { DocItem } from '../../types';
+import { fetchDocAssist } from '../../utils/aiClient';
 
 interface DocumentEditorViewProps {
   docs: DocItem[];
@@ -96,17 +97,9 @@ export const DocumentEditorView: React.FC<DocumentEditorViewProps> = ({
     setAiOutput(null);
 
     try {
-      const res = await fetch('/api/ai/assist-doc', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          action,
-          content: activeDoc.content,
-        }),
-      });
-      const data = await res.json();
-      if (data?.result) {
-        setAiOutput(data.result);
+      const result = await fetchDocAssist(action, activeDoc.content);
+      if (result) {
+        setAiOutput(result);
       }
     } catch (err) {
       console.error('AI Doc Assist failed:', err);

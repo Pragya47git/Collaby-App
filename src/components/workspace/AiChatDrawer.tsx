@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Sparkles, X, Send, Bot, User, Loader2, ArrowRight } from 'lucide-react';
 import { ChatMessage, Task, DocItem } from '../../types';
+import { fetchAiChat } from '../../utils/aiClient';
 
 interface AiChatDrawerProps {
   isOpen: boolean;
@@ -50,27 +51,22 @@ export const AiChatDrawer: React.FC<AiChatDrawerProps> = ({
     setIsLoading(true);
 
     try {
-      const response = await fetch('/api/ai/chat', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          messages: [...messages, userMsg].map((m) => ({
-            role: m.role,
-            content: m.content,
-          })),
-          context: {
-            totalTasks: tasks.length,
-            inProgress: tasks.filter((t) => t.status === 'inprogress').map((t) => t.title),
-            activeDocTitle: activeDoc?.title,
-          },
-        }),
-      });
+      const reply = await fetchAiChat(
+        [...messages, userMsg].map((m) => ({
+          role: m.role,
+          content: m.content,
+        })),
+        {
+          totalTasks: tasks.length,
+          inProgress: tasks.filter((t) => t.status === 'inprogress').map((t) => t.title),
+          activeDocTitle: activeDoc?.title,
+        }
+      );
 
-      const data = await response.json();
       const assistantMsg: ChatMessage = {
         id: `assistant-${Date.now()}`,
         role: 'assistant',
-        content: data.reply || 'I processed your request.',
+        content: reply || 'I processed your request.',
         timestamp: 'Just now',
       };
       setMessages((prev) => [...prev, assistantMsg]);
